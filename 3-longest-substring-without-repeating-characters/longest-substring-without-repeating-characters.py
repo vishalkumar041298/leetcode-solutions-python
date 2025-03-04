@@ -6,13 +6,10 @@ class Solution:
 
         for r in range(n+1):
             substr = s[l:r]
-            print("r: ", r)
-            print(l, r, substr)
             if len(substr) == len(set(substr)):
-                print('unique')
                 res = max(len(substr), res)
             else:
                 l = l + 1
-                
+
         return res
             
