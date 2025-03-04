@@ -4,13 +4,12 @@ class Solution:
         n = len(nums)
         
         total = sum(nums[:k])
-        maxavg = total/k
+        maxavg = total
         for r in range(k, n):
-            
             total = total - nums[l] + nums[r]
             l += 1
-            aavg = total/k
+            aavg = total
             maxavg = max(aavg, maxavg)
 
-        return maxavg
+        return maxavg/k
         
