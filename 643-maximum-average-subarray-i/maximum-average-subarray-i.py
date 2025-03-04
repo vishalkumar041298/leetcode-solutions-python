@@ -6,7 +6,7 @@ class Solution:
         total = sum(nums[:k])
         maxavg = total
         for r in range(k, n):
-            total = total - nums[l] + nums[r]
+            total = total - nums[r-k] + nums[r]
             l += 1
             aavg = total
             maxavg = max(aavg, maxavg)
