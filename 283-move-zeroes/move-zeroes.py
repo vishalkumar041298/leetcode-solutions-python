@@ -15,10 +15,10 @@ class Solution:
         #     if nums[l]!=0:
         #         l+=1
         l = 0
-        for r in range(1, len(nums)):
+        for r in range(len(nums)):
             
-            if nums[l] == 0 and nums[r]!=0:
+            if nums[r]:
                 nums[l], nums[r] = nums[r], nums[l]
                 l+=1
-            if nums[l] != 0:
-                l+=1
+            # if nums[l] != 0:
+            #     l+=1
