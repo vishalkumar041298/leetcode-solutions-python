@@ -7,7 +7,6 @@ class Solution:
         i = 1
 
         while i < m:
-            print(i)
             if needle[prevlps] == needle[i]:
                 lps[i] = prevlps + 1
                 prevlps += 1
@@ -20,7 +19,6 @@ class Solution:
         
         i = 0
         j = 0
-        print(lps)
         while i < n:
             if needle[j] == haystack[i]:
                 i, j = i+1, j+1
