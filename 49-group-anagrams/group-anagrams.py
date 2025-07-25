@@ -2,20 +2,14 @@ from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
-        # maps = defaultdict(list)
-
-        # for s in strs:
-        #     count = [0] * 26   
-        #     for c in s:
-        #         count[ord(c) - ord('a')] += 1
-            
-        #     key = tuple(count)
-        #     maps[key].append(s)
-        # return list(maps.values())
-
-        maps = defaultdict(list)
+        hashmap = defaultdict(list)
 
         for s in strs:
-            j = "".join(sorted(s))
-            maps[j].append(s)
-        return list(maps.values())
+            count = [0] * 26
+            for c in s:
+                index = ord(c) - ord('a')
+                count[index] += 1
+            
+            key = tuple(count)
+            hashmap[key].append(s)
+        return list(hashmap.values())
