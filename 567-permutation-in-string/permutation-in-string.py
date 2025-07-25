@@ -11,18 +11,33 @@ class Solution:
             counts1[ord(s1[i])-ord('a')] += 1
             counts2[ord(s2[i])-ord('a')] += 1
         
-        if counts1 == counts2:
-            return True
+        matches = 0
+        for i in range(26):
+            matches += 1 if counts1[i] == counts2[i] else 0 
+        
         l = 0
         for r in range(len(s1), len(s2)):
-            counts2[ord(s2[r])-ord('a')] += 1
-            counts2[ord(s2[l])-ord('a')] -= 1
-
-
-            if counts1 == counts2:
+            if matches == 26:
                 return True
+            
+            index = ord(s2[r]) - ord('a')
+            counts2[index] += 1
+
+            if counts1[index] == counts2[index]:
+                matches += 1
+            elif counts1[index] + 1 == counts2[index]:
+                matches -= 1
+            index = ord(s2[l]) - ord('a')
+
+
+            counts2[index] -= 1
+            if counts1[index] == counts2[index]:
+                matches += 1
+            elif counts1[index] - 1 == counts2[index]:
+                matches -= 1
+
             l += 1
-        return False
+        return matches == 26
 
 
             
