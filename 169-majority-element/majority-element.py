@@ -1,10 +1,12 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         
-        hashmap = defaultdict(int)
+        count = 0
 
+        res = None
 
         for n in nums:
-            hashmap[n] += 1
-            if hashmap[n] > len(nums)//2:
-                return n
+            if count <= 0:
+                res = n
+            count += 1 if res==n else -1
+        return res
