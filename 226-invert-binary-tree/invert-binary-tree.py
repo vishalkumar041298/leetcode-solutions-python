@@ -9,8 +9,13 @@ class Solution:
         if not root:
             return
         
-        root.left, root.right = root.right, root.left
-        self.invertTree(root.left)
-        self.invertTree(root.right)
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            node.left, node.right = node.right, node.left
+            if node.left:
+                stk.append(node.left)
+            if node.right:
+                stk.append(node.right)
         return root
         
